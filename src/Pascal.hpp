@@ -1,5 +1,6 @@
 #include "constants.hpp"
 #include "gmp.h"
+#include <stdlib.h>
 
 constexpr uint64_t len = PASCALS_TRIANGLE_DEPTH * (PASCALS_TRIANGLE_DEPTH + 1) / 2;
 
