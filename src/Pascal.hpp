@@ -10,9 +10,9 @@ struct PascalsTriangle {
 public:
   PascalsTriangle();
 
-  void Binomial(mpz_t res, const int64_t& n, const uint64_t& k);
+  void binomial(mpz_t res, const int64_t& n, const uint64_t& k);
 
-  void Destroy();
+  void destroy();
 
 private:
   mpz_t data[len];

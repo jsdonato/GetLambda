@@ -20,7 +20,7 @@ PascalsTriangle::PascalsTriangle() {
   }
 }
 
-void PascalsTriangle::Binomial(mpz_t res, const int64_t& n, const uint64_t& k) {
+void PascalsTriangle::binomial(mpz_t res, const int64_t& n, const uint64_t& k) {
   if (n >= 0) {
     if (n < k) {
       mpz_set_ui(res, 0);
@@ -36,7 +36,7 @@ void PascalsTriangle::Binomial(mpz_t res, const int64_t& n, const uint64_t& k) {
   }
 }
 
-void PascalsTriangle::Destroy() {
+void PascalsTriangle::destroy() {
   for (uint64_t i = 0; i < len; ++i) {
     mpz_clear(data[i]);
   }

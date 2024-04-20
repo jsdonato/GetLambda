@@ -45,7 +45,7 @@ void Polynomial::eval(mpq_t res, const uint64_t& x) {
   // TODO
 }
 
-void Polynomial::Destroy() {
+void Polynomial::destroy() {
   for (uint64_t i = 0; i < num_terms; ++i) {
     mpq_clear(coefficients[i]);
   }
