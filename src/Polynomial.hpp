@@ -17,6 +17,8 @@ public:
 
   void eval(mpq_t res, const uint64_t& x);
 
+  void Destroy();
+
 private:
   uint64_t degree;
   uint64_t num_terms;

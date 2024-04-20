@@ -42,5 +42,13 @@ inline uint64_t Polynomial::getDegree() {
 }
 
 void Polynomial::eval(mpq_t res, const uint64_t& x) {
-  
+  // TODO
+}
+
+void Polynomial::Destroy() {
+  for (uint64_t i = 0; i < num_terms; ++i) {
+    mpq_clear(coefficients[i]);
+  }
+  free(coefficients);
+  free(degrees);
 }
