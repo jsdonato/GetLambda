@@ -1,3 +1,6 @@
+#ifndef PASCAL_HPP
+#define PASCAL_HPP
+
 #include "constants.hpp"
 #include "gmp.h"
 #include <stdlib.h>
@@ -17,3 +20,5 @@ public:
 private:
   mpz_t data[len];
 };
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef POLYNOMIAL_HPP
+#define POLYNOMIAL_HPP
+
 #include "gmp.h"
 #include <stdint.h>
 #include <stdlib.h>
@@ -25,3 +28,5 @@ private:
   mpq_t* coefficients;
   uint64_t*  degrees;
 };
+
+#endif
