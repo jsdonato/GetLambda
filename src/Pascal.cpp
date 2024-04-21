@@ -20,7 +20,7 @@ PascalsTriangle::PascalsTriangle() {
   }
 }
 
-void PascalsTriangle::binomial(mpz_t res, const int64_t& n, const uint64_t& k) {
+void PascalsTriangle::binomial(mpz_t res, const int64_t& n, const uint64_t& k) const {
   if (n >= 0) {
     if (n < k) {
       mpz_set_ui(res, 0);

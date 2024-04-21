@@ -1,5 +1,5 @@
-#ifndef PASCAL_HPP
-#define PASCAL_HPP
+#ifndef UTILITY_HPP
+#define UTILITY_HPP
 
 #include "Pascal.hpp"
 #include "Polynomial.hpp"
@@ -23,7 +23,8 @@ std::pair<uint64_t, int64_t> reduce(mpz_t* const seq, const uint64_t& len);
 
 void subtract(mpz_t* const seq, const uint64_t& len,
               const uint64_t& lambda,
-              const uint64_t& start, const uint64_t& end);
+              const uint64_t& start, const uint64_t& end,
+              const PascalsTriangle& pt);
 
 
 #endif

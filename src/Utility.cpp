@@ -68,3 +68,31 @@ std::pair<uint64_t, int64_t> reduce(mpz_t* const seq, const uint64_t& len) {
   mpz_clear(seq_i_copy);
   return std::make_pair(counter, mpz_get_si(seq[0]));
 }
+
+void subtract(mpz_t* const seq, const uint64_t& len,
+              const uint64_t& lambda,
+              const uint64_t& start, const uint64_t& end,
+              const PascalsTriangle& pt) {
+  mpz_t b;
+  mpz_t sum;
+  mpz_t sum_copy;
+  mpz_t seq_x_copy;
+  mpz_init(b);
+  mpz_init(sum);
+  mpz_init(sum_copy);
+  mpz_init(seq_x_copy);
+  for (uint64_t x = 0; x < len; ++x) {
+    mpz_set_ui(sum, 0);
+    for (uint64_t i = start; i <= end; ++i) {
+      pt.binomial(b, x + lambda - i, lambda - 1);
+      mpz_set(sum_copy, sum);
+      mpz_add(sum, b, sum_copy);
+    }
+    mpz_set(seq_x_copy, seq[x]);
+    mpz_sub(seq[x], seq_x_copy, sum);
+  }
+  mpz_clear(b);
+  mpz_clear(sum);
+  mpz_clear(sum_copy);
+  mpz_clear(seq_x_copy);
+}
