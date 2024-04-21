@@ -40,6 +40,7 @@ bool isZSequence(mpq_t* const seq, const uint64_t& len) {
     mpq_get_den(denominator, seq[i]);
     res = res && (mpz_cmp_ui(denominator, 1) == 0);
   }
+  mpz_clear(denominator);
   return res;
 }
 
@@ -51,4 +52,19 @@ bool isConstantZSequence(mpz_t* const seq, const uint64_t& len) {
   return res;
 }
 
-
+std::pair<uint64_t, int64_t> reduce(mpz_t* const seq, const uint64_t& len) {
+  uint64_t counter = 0;
+  uint64_t end = len;
+  mpz_t seq_i_copy;
+  mpz_init(seq_i_copy);
+  while (!isConstantZSequence(seq, end)) {
+    for (uint64_t i = 0; i < end - 1; ++i) {
+      mpz_set(seq_i_copy, seq[i]);
+      mpz_sub(seq[i], seq[i + 1], seq_i_copy);
+    }
+    ++counter;
+    --end;
+  }
+  mpz_clear(seq_i_copy);
+  return std::make_pair(counter, mpz_get_si(seq[0]));
+}

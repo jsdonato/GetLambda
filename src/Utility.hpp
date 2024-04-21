@@ -3,6 +3,7 @@
 
 #include "Pascal.hpp"
 #include "Polynomial.hpp"
+#include <utility>
 
 void initZSequence(mpz_t* const seq, const uint64_t& len);
 
@@ -18,7 +19,7 @@ bool isZSequence(mpq_t* const seq, const uint64_t& len);
 
 bool isConstantZSequence(mpz_t* const seq, const uint64_t& len);
 
-void reduce(mpz_t* const seq, const uint64_t& len);
+std::pair<uint64_t, int64_t> reduce(mpz_t* const seq, const uint64_t& len);
 
 void subtract(mpz_t* const seq, const uint64_t& len,
               const uint64_t& lambda,
