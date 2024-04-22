@@ -52,6 +52,12 @@ bool isConstantZSequence(mpz_t* const seq, const uint64_t& len) {
   return res;
 }
 
+void copyZSequence(mpz_t* const lhs, const mpz_t* const rhs, const uint64_t& len) {
+  for (uint64_t i = 0; i < len; ++i) {
+    mpz_set(lhs[i], rhs[i]);
+  }
+}
+
 std::pair<uint64_t, int64_t> reduce(mpz_t* const seq, const uint64_t& len) {
   uint64_t counter = 0;
   uint64_t end = len;
