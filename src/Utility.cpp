@@ -24,7 +24,7 @@ void clearQSequence(mpq_t* const seq, const uint64_t& len) {
   }
 }
 
-bool isZeroSequence(mpz_t* const seq, const uint64_t& len) {
+bool isZeroZSequence(mpz_t* const seq, const uint64_t& len) {
   bool res = true;
   for (uint64_t i = 0; i < len; ++i) {
     res = res && (mpz_cmp_ui(seq[i], 0) == 0);

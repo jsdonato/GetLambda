@@ -13,7 +13,7 @@ void initQSequence(mpq_t* const seq, const uint64_t& len);
 
 void clearQSequence(mpq_t* const seq, const uint64_t& len);
 
-bool isZeroSequence(mpz_t* const seq, const uint64_t& len);
+bool isZeroZSequence(mpz_t* const seq, const uint64_t& len);
 
 bool isZSequence(mpq_t* const seq, const uint64_t& len);
 

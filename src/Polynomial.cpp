@@ -37,11 +37,7 @@ void Polynomial::setDegree(const uint64_t& i, const uint64_t& d) {
   degrees[i] = d;
 }
 
-inline uint64_t Polynomial::getDegree() {
-  return degree;
-}
-
-void Polynomial::eval(mpq_t res, const uint64_t& x) {
+void Polynomial::eval(mpq_t res, const uint64_t& x) const {
   mpz_t pow_x_d;
   mpz_t numerator;
   mpz_t denominator;

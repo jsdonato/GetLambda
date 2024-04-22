@@ -16,9 +16,9 @@ public:
 
   void setDegree(const uint64_t& i, const uint64_t& d);
 
-  inline uint64_t getDegree();
+  inline uint64_t getDegree() const { return degree; }
 
-  void eval(mpq_t res, const uint64_t& x);
+  void eval(mpq_t res, const uint64_t& x) const;
 
   void destroy();
 
