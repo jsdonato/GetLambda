@@ -2,12 +2,24 @@
 
 std::vector<uint64_t> getLambdaFromSequence(mpz_t* const seq, const uint64_t& len) {
   std::vector<uint64_t> res;
-  uint64_t s, e;
+  const PascalsTriangle pt;
+  mpz_t* const seq_copy = (mpz_t *)malloc(sizeof(mpz_t) * len);
+  uint64_t s = 1;
+  uint64_t e;
 
   while (!isZeroZSequence(seq, len)) {
-  
+    copyZSequence(seq_copy, seq, len);
+    std::pair<uint64_t, int64_t> reduce_res = reduce(seq_copy, len);
+    if (reduce_res.second < 0) {
+      return {};
+    }
+    res.insert(res.end(), reduce_res.second, reduce_res.first + 1);
+    e = s + reduce_res.second - 1;
+    subtract(seq, len, reduce_res.first + 1, s, e, pt);
+    s = s + reduce_res.second;
   }
 
+  free(seq_copy);
   return res;
 }
 

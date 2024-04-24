@@ -6,4 +6,4 @@ gcc -std=c++11 -O3 \
 ../src/Utility.cpp \
 ../src/GetLambda.cpp \
 main.cpp \
--o tests -lgmp
+-o tests -lgmp -lstdc++
