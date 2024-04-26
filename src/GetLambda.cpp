@@ -1,8 +1,7 @@
 #include "GetLambda.hpp"
 
-std::vector<uint64_t> getLambdaFromSequence(mpz_t* const seq, const uint64_t& len) {
+std::vector<uint64_t> getLambdaFromSequence(mpz_t* const seq, const uint64_t& len, const PascalsTriangle& pt) {
   std::vector<uint64_t> res;
-  const PascalsTriangle pt;
   mpz_t* const seq_copy = (mpz_t *)malloc(sizeof(mpz_t) * len);
   uint64_t s = 1;
   uint64_t e;
@@ -23,7 +22,7 @@ std::vector<uint64_t> getLambdaFromSequence(mpz_t* const seq, const uint64_t& le
   return res;
 }
 
-std::vector<uint64_t> getLambdaFromPolynomial(const Polynomial& poly) {
+std::vector<uint64_t> getLambdaFromPolynomial(const Polynomial& poly, const PascalsTriangle& pt) {
   uint64_t degree = poly.getDegree();
 
   mpq_t* const q_seq = (mpq_t *)malloc(sizeof(mpq_t) * (degree + 1));
@@ -47,7 +46,7 @@ std::vector<uint64_t> getLambdaFromPolynomial(const Polynomial& poly) {
   clearQSequence(q_seq, degree + 1);
   free(q_seq);
 
-  std::vector<uint64_t> res = getLambdaFromSequence(z_seq, degree + 1);
+  std::vector<uint64_t> res = getLambdaFromSequence(z_seq, degree + 1, pt);
 
   clearZSequence(z_seq, degree + 1);
   free(z_seq);
