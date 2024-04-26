@@ -38,6 +38,7 @@ void Polynomial::setDegree(const uint64_t& i, const uint64_t& d) {
 }
 
 void Polynomial::eval(mpq_t res, const uint64_t& x) const {
+  mpq_init(res);
   mpz_t pow_x_d;
   mpz_t numerator;
   mpz_t denominator;

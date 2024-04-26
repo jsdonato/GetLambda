@@ -5,5 +5,7 @@ gcc -std=c++11 -O3 \
 ../src/Polynomial.cpp \
 ../src/Utility.cpp \
 ../src/GetLambda.cpp \
+testPascal.cpp \
+testPolynomial.cpp \
 main.cpp \
 -o tests -lgmp -lstdc++

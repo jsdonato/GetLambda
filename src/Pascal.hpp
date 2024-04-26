@@ -1,9 +1,11 @@
 #ifndef PASCAL_HPP
 #define PASCAL_HPP
 
+#include <stdlib.h>
+#include <stdio.h>
 #include "constants.hpp"
 #include "gmp.h"
-#include <stdlib.h>
+
 
 constexpr uint64_t len = PASCALS_TRIANGLE_DEPTH * (PASCALS_TRIANGLE_DEPTH + 1) / 2;
 
