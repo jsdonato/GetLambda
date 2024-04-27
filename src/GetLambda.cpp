@@ -17,7 +17,7 @@ std::vector<uint64_t> getLambdaFromSequence(mpz_t* const seq, const uint64_t& le
     subtract(seq, len, reduce_res.first + 1, s, e, pt);
     s = s + reduce_res.second;
   }
-
+  clearZSequence(seq_copy, len);
   free(seq_copy);
   return res;
 }

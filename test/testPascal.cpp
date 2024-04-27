@@ -1,5 +1,5 @@
 #include "tests.hpp"
-#include <iostream>
+
 void testPascal() {
   PascalsTriangle pt;
 
