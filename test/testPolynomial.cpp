@@ -39,5 +39,26 @@ void testPolynomial() {
   assert(mpq_cmp(num, comp) == 0);
   assert(poly.getDegree() == 99);
 
+  // TEST 3
+  poly.reInit(3);
+
+  poly.setDegree(0, 3);
+  poly.setDegree(1, 20);
+  poly.setDegree(2, 31);
+
+  poly.setCoefficient(0, "40");
+  poly.setCoefficient(1, "10");
+  poly.setCoefficient(2, "7");
+
+  poly.eval(num, 20);
+
+  mpq_set_str(comp, "150323855360001048576000000000000000320000/1", 0);
+
+  assert(mpq_cmp(num, comp) == 0);
+  assert(poly.getDegree() == 31);
+
+  mpq_clear(num);
+  mpq_clear(comp);
+
   poly.destroy();
 }

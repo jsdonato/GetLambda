@@ -37,5 +37,15 @@ void testPascal() {
 
   assert(mpz_cmp(num, comp) == 0);
 
+  // TEST 5
+  pt.binomial(num, -40, 6);
+
+  mpz_set_str(comp, "8145060" , 0);
+
+  assert(mpz_cmp(num, comp) == 0);
+
+  mpz_clear(num);
+  mpz_clear(comp);
+
   pt.destroy();
 }

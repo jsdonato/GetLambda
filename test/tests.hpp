@@ -9,5 +9,7 @@
 
 void testPascal();
 void testPolynomial();
+void testUtility();
+void testGetLambda();
 
 #endif
