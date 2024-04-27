@@ -47,7 +47,7 @@ bool isZSequence(mpq_t* const seq, const uint64_t& len) {
 bool isConstantZSequence(mpz_t* const seq, const uint64_t& len) {
   bool res = true;
   for (uint64_t i = 1; i < len; ++i) {
-    res = res && (mpz_cmp(seq[i], seq[1]) == 0);
+    res = res && (mpz_cmp(seq[i], seq[0]) == 0);
   }
   return res;
 }
