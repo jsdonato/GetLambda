@@ -60,5 +60,4 @@ void testPolynomial() {
   mpq_clear(num);
   mpq_clear(comp);
 
-  poly.destroy();
 }

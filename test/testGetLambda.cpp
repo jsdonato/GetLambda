@@ -52,7 +52,6 @@ void testGetLambda() {
     assert(res[i] == comp[i]);
   }
 
-  poly.destroy();
 
   // TEST 3
   mpz_t* seq_z = (mpz_t *)malloc(9 * sizeof(mpz_t));
@@ -79,5 +78,4 @@ void testGetLambda() {
   clearZSequence(seq_z, 9);
   free(seq_z);
 
-  pt.destroy();
 }

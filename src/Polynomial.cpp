@@ -78,7 +78,7 @@ void Polynomial::eval(mpq_t res, const uint64_t& x) const {
   mpq_clear(res_copy);
 }
 
-void Polynomial::destroy() {
+Polynomial::~Polynomial() {
   for (uint64_t i = 0; i < num_terms; ++i) {
     mpq_clear(coefficients[i]);
   }

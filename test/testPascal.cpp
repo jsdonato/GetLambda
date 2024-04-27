@@ -47,5 +47,4 @@ void testPascal() {
   mpz_clear(num);
   mpz_clear(comp);
 
-  pt.destroy();
 }

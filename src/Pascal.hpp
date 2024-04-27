@@ -17,7 +17,7 @@ public:
 
   void binomial(mpz_t res, const int64_t& n, const uint64_t& k) const;
 
-  void destroy();
+  ~PascalsTriangle();
 
 private:
   mpz_t data[len];

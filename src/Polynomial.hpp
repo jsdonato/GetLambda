@@ -20,7 +20,7 @@ public:
 
   void eval(mpq_t res, const uint64_t& x) const;
 
-  void destroy();
+  ~Polynomial();
 
 private:
   uint64_t degree;

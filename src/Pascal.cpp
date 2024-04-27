@@ -51,7 +51,7 @@ void PascalsTriangle::binomial(mpz_t res, const int64_t& n, const uint64_t& k) c
   }
 }
 
-void PascalsTriangle::destroy() {
+PascalsTriangle::~PascalsTriangle() {
   for (uint64_t i = 0; i < len; ++i) {
     mpz_clear(data[i]);
   }
