@@ -4,7 +4,7 @@ A polynomial $p(x)\in \mathbb{Q}[x]$ is a Hilbert polynomial if and only if $p(x
 in the form $p(x)=\sum_{i\in1,2,\dots,r}\binom{x+\lambda_{i}-i}{\lambda_{i}-1}$ for some
 integer sequence $\lambda_{1}\geq\lambda_{2}\geq\dots\geq\lambda_{r}\geq 1$.
 
-That is, if you have a positive non-increasing integer sequence you can generate Hilbert polynomial.
+That is, if you have a positive non-increasing integer sequence you can generate a Hilbert polynomial.
 However, if you simply have a polynomial $p(x)\in\mathbb{Q}[x]$ how do you efficiently classify if it's
 a Hilbert polynomial and if so, recover the non-increasing positive integer sequence associated with it?
 The C++ library in this repository solves such problem efficiently and reliably.
@@ -18,7 +18,8 @@ std::vector<uint64_t> getLambdaFromPolynomial(const Polynomial& poly, const Pasc
 In both methods, one will notice that they expect a `PascalsTriangle` object.  This is so that if a user
 intends on doing large and/or many numerical experments they only need to cache Pascals Triangle one time
 by initializing the object once before the experiment of at the beginning of the program.
-The depth of Pascals Trinagle can be adjusted before compilation in `src/constants.hpp`.
+The depth of Pascals Triangle can be adjusted before compilation in `src/constants.hpp`.  By default, the depth
+is set to 50.  A depth of atleast 50 is required to pass the tests.
 ```
 PascalsTriangle pt;
 ```
