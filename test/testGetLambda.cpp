@@ -1,6 +1,8 @@
 #include "tests.hpp"
 
 void testGetLambda() {
+  fprintf(stderr, "=== BEGIN testGetLambda ===\n");
+
   PascalsTriangle pt;
   std::vector<uint64_t> res;
   std::vector<uint64_t> comp;
@@ -78,4 +80,5 @@ void testGetLambda() {
   clearZSequence(seq_z, 9);
   free(seq_z);
 
+  fprintf(stderr, "=== END testGetLambda ===\n");
 }

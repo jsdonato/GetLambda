@@ -1,6 +1,8 @@
 #include "tests.hpp"
 
 void testUtility() {
+  fprintf(stderr, "=== BEGIN testUtility ===\n");
+
   mpq_t* seq_q = (mpq_t *)malloc(3 * sizeof(mpq_t));
 
   // TEST 1
@@ -159,4 +161,6 @@ void testUtility() {
 
   clearZSequence(seq_z, 5);
   free(seq_z);
+
+  fprintf(stderr, "=== END testUtility ===\n");
 }

@@ -1,6 +1,8 @@
 #include "tests.hpp"
 
 void testPascal() {
+  fprintf(stderr, "=== BEGIN testPascal ===\n");
+
   PascalsTriangle pt;
 
   mpz_t num;
@@ -47,4 +49,5 @@ void testPascal() {
   mpz_clear(num);
   mpz_clear(comp);
 
+  fprintf(stderr, "=== END testPascal ===\n");
 }
