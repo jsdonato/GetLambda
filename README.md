@@ -49,8 +49,3 @@ $\lambda_{1}\geq\lambda_{2}\geq\dots\geq\lambda_{r}\geq 1$ if it is a Hilbert Po
 
 # Dependencies
 GNU Multi-Precision library: [GMP](gmplib.org)
-
-
-
-
-
