@@ -45,8 +45,16 @@ The member function `setDegree(const uint64_t& i, const uint64_t& d)` sets the d
 The member function `getDegree()` simply returns the degree of the polynomial.
 
 For both methods `getLambdaFromSequence` and `getLambdaFromPolynomial` they return an empty vector if the polynomial
-is not a Hilbert Polynomial and returns a positive non-increasing integer sequence of the form 
+is not a Hilbert Polynomial and returns a positive non-increasing integer sequence of the form
 $\lambda_{1}\geq\lambda_{2}\geq\dots\geq\lambda_{r}\geq 1$ if it is a Hilbert Polynomial.
+
+# Building
+To build the library, one must provide the `GMP_DIR` enviornment variable.
+```
+make GMP_DIR=<path to gmp installation>
+```
+The above command will generate the `*.o` files in the top level directory of this repository
+and run tests.
 
 # Dependencies
 GNU Multi-Precision library: [GMP](gmplib.org)
