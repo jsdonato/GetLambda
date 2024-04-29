@@ -1,5 +1,5 @@
 # Algorithm and Problem Statement
-From Macaulay we have the following theorem which establishes the condition for a Hilbert Polynomial.
+From Macaulay, we have the following theorem which establishes the condition for a Hilbert Polynomial.
 A polynomial $p(x)\in \mathbb{Q}[x]$ is a Hilbert polynomial if and only if $p(x)$ can be written
 in the form $p(x)=\sum_{i\in1,2,\dots,r}\binom{x+\lambda_{i}-i}{\lambda_{i}-1}$ for some
 integer sequence $\lambda_{1}\geq\lambda_{2}\geq\dots\geq\lambda_{r}\geq 1$.
@@ -19,7 +19,8 @@ In both methods, one will notice that they expect a `PascalsTriangle` object.  T
 intends on doing large and/or many numerical experments they only need to cache Pascals Triangle one time
 by initializing the object once before the experiment of at the beginning of the program.
 The depth of Pascals Triangle can be adjusted before compilation in `src/constants.hpp`.  By default, the depth
-is set to 50.  A depth of atleast 50 is required to pass the tests.
+is set to 50.  If the depth of Pascals Triangle is not large enough for a particular program, then it exists with
+an error message.
 ```
 PascalsTriangle pt;
 ```
@@ -35,7 +36,7 @@ void setCoefficient(const uint64_t& i, const char* str);
 void setDegree(const uint64_t& i, const uint64_t& d);
 uint64_t getDegree();
 ```
-To construct a `Polynomial` object the user bust provide and integer `num_terms_` which is the number of
+To construct a `Polynomial` object the user must provide an integer `num_terms_` which is the number of
 terms in the polynomial.  The member function `reInit(const uint64_t& num_terms_)` clears the existing polynomial
 and reinitializes it with a new number of terms `num_terms_`.  To set the coefficients, one can employ the
 `setCoefficient(const uint64_t& i, const char* str)` member function which sets the coefficient of the `i`th term.
