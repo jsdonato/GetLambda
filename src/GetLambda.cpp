@@ -10,6 +10,8 @@ std::vector<uint64_t> getLambdaFromSequence(mpz_t* const seq, const uint64_t& le
     copyZSequence(seq_copy, seq, len);
     std::pair<uint64_t, int64_t> reduce_res = reduce(seq_copy, len);
     if (reduce_res.second < 0) {
+      clearZSequence(seq_copy, len);
+      free(seq_copy);
       return {};
     }
     res.insert(res.end(), reduce_res.second, reduce_res.first + 1);
@@ -33,6 +35,8 @@ std::vector<uint64_t> getLambdaFromPolynomial(const Polynomial& poly, const Pasc
   }
 
   if (!isZSequence(q_seq, degree + 1)) {
+    clearQSequence(q_seq, degree + 1);
+    free(q_seq);
     return {};
   }
 
