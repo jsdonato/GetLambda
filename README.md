@@ -17,7 +17,7 @@ std::vector<uint64_t> getLambdaFromPolynomial(const Polynomial& poly, const Pasc
 ```
 In both methods, one will notice that they expect a `PascalsTriangle` object.  This is so that if a user
 intends on doing large and/or many numerical experments they only need to cache Pascals Triangle one time
-by initializing the object once before the experiment of at the beginning of the program.
+by initializing the object once before the experiment or at the beginning of the program.
 The depth of Pascals Triangle can be adjusted before compilation in `src/constants.hpp`.  By default, the depth
 is set to 50.  If the depth of Pascals Triangle is not large enough for a particular program, then it exists with
 an error message.
