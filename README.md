@@ -54,8 +54,16 @@ To build the library, one must provide the `GMP_DIR` enviornment variable.
 ```
 make GMP_DIR=<path to gmp installation>
 ```
-The above command will generate the `*.o` files in the top level directory of this repository
-and run tests.
+The above command will generate the `libgetlambda.a` static library file in the top level directory of this repository and
+generate the testing executable.
+```
+make test
+```
+Once building is done, the above command will run unit tests.
+```
+make clean
+```
+Run the above command to delete the `libgetlambda.a` file as well as the testing executable
 
 # Dependencies
 GNU Multi-Precision library: [GMP](gmplib.org)
