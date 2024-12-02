@@ -55,7 +55,8 @@ To build the library, one must provide the `GMP_DIR` enviornment variable.
 make GMP_DIR=<path to gmp installation>
 ```
 The above command will generate the `libgetlambda.a` static library file in the top level directory of this repository and
-generate the testing executable.
+generate the testing executable.  Before running any of the following commands make sure to `cd` into the top level of this
+repository first.
 ```
 make test
 ```
