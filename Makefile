@@ -6,8 +6,11 @@ SRCS = $(wildcard src/*.cpp)
 DEPS = $(wildcard src/*.hpp)
 OBJS = $(patsubst src/%.cpp, %.o, $(SRCS))
 
-
 %.o: src/%.cpp
+ifndef GMP_DIR
+	@echo "Error: GMP_DIR not defined"
+	exit 1
+endif
 	$(CC) $(CFLAGS) -I$(GMP_DIR)/include -c -o $@ $<
 
 libgetlambda.a: $(OBJS)
