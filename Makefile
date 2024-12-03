@@ -23,5 +23,6 @@ test:
 	./test/tests
 
 clean:
+	rm -f *.o
 	rm -f libgetlambda.a
 	rm -f test/tests
