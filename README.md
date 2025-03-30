@@ -50,7 +50,7 @@ is not a Hilbert Polynomial and returns a positive non-increasing integer sequen
 $\lambda_{1}\geq\lambda_{2}\geq\dots\geq\lambda_{r}\geq 1$ if it is a Hilbert Polynomial.
 
 # Building
-To build the library, one must first provide the gmp install ation and install prefix enviornment via the following.
+To build the library, one must first provide the gmp installation and install prefix paths via the following command.
 ```
 ./configure -g <gmp installation directory> -p <install prefix>
 ```
