@@ -67,4 +67,4 @@ To clean the build enviornment run the following.
 make clean
 ```
 # Dependencies
-GNU Multi-Precision library: [GMP](gmplib.org)
+GNU Multi-Precision library: [GMP](https://gmplib.org)
