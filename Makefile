@@ -6,23 +6,29 @@ SRCS = $(wildcard src/*.cpp)
 DEPS = $(wildcard src/*.hpp)
 OBJS = $(patsubst src/%.cpp, %.o, $(SRCS))
 
+GMP_DIR=$(shell sed -n '1p' $(ROOT)/.cache)
+PREFIX=$(shell sed -n '2p' $(ROOT)/.cache)
+
 %.o: src/%.cpp
-ifndef GMP_DIR
-	@echo "Error: GMP_DIR not defined"
-	exit 1
-endif
 	$(CC) $(CFLAGS) -I$(GMP_DIR)/include -c -o $@ $<
 
 libgetlambda.a: $(OBJS)
+	mkdir $(PREFIX)/lib
+	mkdir $(PREFIX)/include
 	ar rcs libgetlambda.a $(OBJS)
+	mv libgetlambda.a $(PREFIX)/lib
+	cp $(ROOT)/src/*hpp $(PREFIX)/include
 	rm $(OBJS)
-	$(CC) $(CFLAGS) $(TESTS) -o test/tests -I$(ROOT)/src -L$(ROOT) -lgetlambda -I$(GMP_DIR)/include -L$(GMP_DIR)/lib -lgmp
 
 .PHONY: test
 test:
-	./test/tests
+	mkdir -p $(PREFIX)/test
+	$(CC) $(CFLAGS) $(TESTS) -o $(PREFIX)/test/tests -I$(PREFIX)/include -L$(PREFIX)/lib -lgetlambda -I$(GMP_DIR)/include -L$(GMP_DIR)/lib -lgmp
+	$(PREFIX)/test/tests
 
 clean:
 	rm -f *.o
-	rm -f libgetlambda.a
-	rm -f test/tests
+	rm -rf $(PREFIX)/include
+	rm -rf $(PREFIX)/lib
+	rm -rf $(PREFIX)/test
+	> $(ROOT)/.cache
