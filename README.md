@@ -50,21 +50,21 @@ is not a Hilbert Polynomial and returns a positive non-increasing integer sequen
 $\lambda_{1}\geq\lambda_{2}\geq\dots\geq\lambda_{r}\geq 1$ if it is a Hilbert Polynomial.
 
 # Building
-To build the library, one must provide the `GMP_DIR` enviornment variable.
+To build the library, one must first provide the gmp install ation and install prefix enviornment via the following.
 ```
-make GMP_DIR=<path to gmp installation>
+./configure -g <gmp installation directory> -p <install prefix>
 ```
-The above command will generate the `libgetlambda.a` static library file in the top level directory of this repository and
-generate the testing executable.  Before running any of the following commands make sure to `cd` into the top level of this
-repository first.
+From here, to install `libgetlambda.a` in `<install prefix>/lib` with header files in `<install prefix>/include` run the following.
+```
+make
+```
+Once building is done, the following command will run unit tests and put the test executable in `<install prefix>/test`.
 ```
 make test
 ```
-Once building is done, the above command will run unit tests.
+To clean the build enviornment run the following.
 ```
 make clean
 ```
-Run the above command to delete the `libgetlambda.a` file as well as the testing executable
-
 # Dependencies
 GNU Multi-Precision library: [GMP](gmplib.org)
