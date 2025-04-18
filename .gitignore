@@ -1,4 +1,4 @@
-test/tests
 *.a
 *.o
+tests
 build_cache
