@@ -6,8 +6,8 @@ SRCS = $(wildcard src/*.cpp)
 DEPS = $(wildcard src/*.hpp)
 OBJS = $(patsubst src/%.cpp, %.o, $(SRCS))
 
-GMP_DIR=$(shell sed -n '1p' $(ROOT)/.cache)
-PREFIX=$(shell sed -n '2p' $(ROOT)/.cache)
+GMP_DIR=$(shell sed -n '1p' $(ROOT)/build_cache)
+PREFIX=$(shell sed -n '2p' $(ROOT)/build_cache)
 
 %.o: src/%.cpp
 	$(CC) $(CFLAGS) -I$(GMP_DIR)/include -c -o $@ $<

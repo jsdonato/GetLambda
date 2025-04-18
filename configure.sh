@@ -20,9 +20,9 @@ elif [[ -z "${PREFIX}" ]]; then
 	echo "Error: PREFIX not defined"
 	exit 1
 else
-        > ${PWD}/.cache
-	echo ${GMP_DIR} >> ${PWD}/.cache
-	echo ${PREFIX} >> ${PWD}/.cache
+        > ${PWD}/build_cache
+	echo ${GMP_DIR} >> ${PWD}/build_cache
+	echo ${PREFIX} >> ${PWD}/build_cache
         unset -v GMP_DIR
         unset -v PREFIX
 fi
