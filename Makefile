@@ -31,4 +31,3 @@ clean:
 	rm -rf $(PREFIX)/include
 	rm -rf $(PREFIX)/lib
 	rm -rf $(PREFIX)/test
-	> $(ROOT)/.cache
