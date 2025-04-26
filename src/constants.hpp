@@ -3,6 +3,6 @@
 
 #include <stdint.h>
 
-constexpr uint64_t PASCALS_TRIANGLE_DEPTH = 50;
+const uint64_t PASCALS_TRIANGLE_DEPTH = 50;
 
 #endif

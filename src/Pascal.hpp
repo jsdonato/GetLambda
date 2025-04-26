@@ -7,7 +7,7 @@
 #include "gmp.h"
 
 
-constexpr uint64_t len = PASCALS_TRIANGLE_DEPTH * (PASCALS_TRIANGLE_DEPTH + 1) / 2;
+const uint64_t len = PASCALS_TRIANGLE_DEPTH * (PASCALS_TRIANGLE_DEPTH + 1) / 2;
 
 inline uint64_t getIndex(const uint64_t& n, const uint64_t& k);
 
