@@ -7,9 +7,16 @@
 #include "Utility.hpp"
 #include "GetLambda.hpp"
 
-void testPascal();
-void testPolynomial();
-void testUtility();
-void testGetLambda();
+#define ASSERT_TRUE(b) { \
+  if (!(b)) { \
+    fprintf(stderr, "FAIL: in file %s on line %d\n", __FILE__, __LINE__); \
+    return EXIT_FAILURE; \
+  } \
+} \
+
+int testPascal();
+int testPolynomial();
+int testUtility();
+int testGetLambda();
 
 #endif

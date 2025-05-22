@@ -1,6 +1,6 @@
 #include "tests.hpp"
 
-void testPolynomial() {
+int testPolynomial() {
   fprintf(stderr, "=== BEGIN testPolynomial ===\n");
 
   Polynomial poly(3);
@@ -63,4 +63,5 @@ void testPolynomial() {
   mpq_clear(comp);
 
   fprintf(stderr, "=== END testPolynomial ===\n");
+  return EXIT_SUCCESS;
 }

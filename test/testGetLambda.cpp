@@ -1,6 +1,6 @@
 #include "tests.hpp"
 
-void testGetLambda() {
+int testGetLambda() {
   fprintf(stderr, "=== BEGIN testGetLambda ===\n");
 
   PascalsTriangle pt;
@@ -19,7 +19,7 @@ void testGetLambda() {
 
   res = getLambdaFromPolynomial(poly, pt);
 
-  assert(res.empty());
+  ASSERT_TRUE(res.empty());
 
   // TEST 2
   poly.reInit(10);
@@ -49,9 +49,9 @@ void testGetLambda() {
   res = getLambdaFromPolynomial(poly, pt);
   comp = {10, 10, 10, 10, 10, 7, 7, 7, 7, 1, 1, 1, 1};
 
-  assert(res.size() == comp.size());
+  ASSERT_TRUE(res.size() == comp.size());
   for (uint64_t i = 0; i < res.size(); ++i) {
-    assert(res[i] == comp[i]);
+    ASSERT_TRUE(res[i] == comp[i]);
   }
 
 
@@ -72,13 +72,14 @@ void testGetLambda() {
   res = getLambdaFromSequence(seq_z, 9, pt);
   comp = {9, 9, 9, 9, 6, 6, 6, 6, 2, 2, 2};
 
-  assert(res.size() == comp.size());
+  ASSERT_TRUE(res.size() == comp.size());
   for (uint64_t i = 0; i < res.size(); ++i) {
-    assert(res[i] == comp[i]);
+    ASSERT_TRUE(res[i] == comp[i]);
   }
 
   clearZSequence(seq_z, 9);
   free(seq_z);
 
   fprintf(stderr, "=== END testGetLambda ===\n");
+  return EXIT_SUCCESS;
 }

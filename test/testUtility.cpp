@@ -1,6 +1,6 @@
 #include "tests.hpp"
 
-void testUtility() {
+int testUtility() {
   fprintf(stderr, "=== BEGIN testUtility ===\n");
 
   mpq_t* seq_q = (mpq_t *)malloc(3 * sizeof(mpq_t));
@@ -10,9 +10,9 @@ void testUtility() {
   for (uint64_t i = 0; i < 3; ++i) {
     mpq_set_ui(seq_q[i], i + 1, i + 2);
   }
-  assert(mpq_cmp_ui(seq_q[0], 1, 2) == 0);
-  assert(mpq_cmp_ui(seq_q[1], 2, 3) == 0);
-  assert(mpq_cmp_ui(seq_q[2], 3, 4) == 0);
+  ASSERT_TRUE(mpq_cmp_ui(seq_q[0], 1, 2) == 0);
+  ASSERT_TRUE(mpq_cmp_ui(seq_q[1], 2, 3) == 0);
+  ASSERT_TRUE(mpq_cmp_ui(seq_q[2], 3, 4) == 0);
   clearQSequence(seq_q, 3);
   free(seq_q);
 
@@ -23,10 +23,10 @@ void testUtility() {
   for (uint64_t i = 0; i < 4; ++i) {
     mpz_set_si(seq_z[i], i - 9);
   }
-  assert(mpz_cmp_si(seq_z[0], -9) == 0);
-  assert(mpz_cmp_si(seq_z[1], -8) == 0);
-  assert(mpz_cmp_si(seq_z[2], -7) == 0);
-  assert(mpz_cmp_si(seq_z[3], -6) == 0);
+  ASSERT_TRUE(mpz_cmp_si(seq_z[0], -9) == 0);
+  ASSERT_TRUE(mpz_cmp_si(seq_z[1], -8) == 0);
+  ASSERT_TRUE(mpz_cmp_si(seq_z[2], -7) == 0);
+  ASSERT_TRUE(mpz_cmp_si(seq_z[3], -6) == 0);
   clearZSequence(seq_z, 4);
   free(seq_z);
 
@@ -39,14 +39,14 @@ void testUtility() {
   mpz_set_si(seq_z[2], 0);
   mpz_set_si(seq_z[3], 0);
 
-  assert(!isZeroZSequence(seq_z, 4));
+  ASSERT_TRUE(!isZeroZSequence(seq_z, 4));
 
   mpz_set_si(seq_z[0], 0);
   mpz_set_si(seq_z[1], 0);
   mpz_set_si(seq_z[2], 0);
   mpz_set_si(seq_z[3], 0);
 
-  assert(isZeroZSequence(seq_z, 4));
+  ASSERT_TRUE(isZeroZSequence(seq_z, 4));
 
   clearZSequence(seq_z, 4);
   free(seq_z);
@@ -59,13 +59,13 @@ void testUtility() {
   mpq_set_ui(seq_q[1], 3, 1);
   mpq_set_ui(seq_q[2], 5, 1);
 
-  assert(!isZSequence(seq_q, 3));
+  ASSERT_TRUE(!isZSequence(seq_q, 3));
 
   mpq_set_ui(seq_q[0], 1010, 1);
   mpq_set_ui(seq_q[1], 91, 1);
   mpq_set_ui(seq_q[2], 80, 1);
 
-  assert(isZSequence(seq_q, 3));
+  ASSERT_TRUE(isZSequence(seq_q, 3));
 
   clearQSequence(seq_q, 3);
   free(seq_q);
@@ -78,14 +78,14 @@ void testUtility() {
   mpz_set_si(seq_z[2], -5);
   mpz_set_si(seq_z[3], 3);
 
-  assert(!isConstantZSequence(seq_z, 4));
+  ASSERT_TRUE(!isConstantZSequence(seq_z, 4));
 
   mpz_set_si(seq_z[0], 99);
   mpz_set_si(seq_z[1], 99);
   mpz_set_si(seq_z[2], 99);
   mpz_set_si(seq_z[3], 99);
 
-  assert(isConstantZSequence(seq_z, 4));
+  ASSERT_TRUE(isConstantZSequence(seq_z, 4));
 
   clearZSequence(seq_z, 4);
   free(seq_z);
@@ -102,9 +102,9 @@ void testUtility() {
 
   copyZSequence(seq_z_temp, seq_z, 3);
 
-  assert(mpz_cmp_si(seq_z_temp[0], -20) == 0);
-  assert(mpz_cmp_si(seq_z_temp[1], 10) == 0);
-  assert(mpz_cmp_si(seq_z_temp[2], -5) == 0);
+  ASSERT_TRUE(mpz_cmp_si(seq_z_temp[0], -20) == 0);
+  ASSERT_TRUE(mpz_cmp_si(seq_z_temp[1], 10) == 0);
+  ASSERT_TRUE(mpz_cmp_si(seq_z_temp[2], -5) == 0);
 
   clearZSequence(seq_z, 3);
   clearZSequence(seq_z_temp, 3);
@@ -123,8 +123,8 @@ void testUtility() {
   std::pair<uint64_t, int64_t> reduce_res;
   reduce_res = reduce(seq_z, 4);
 
-  assert(reduce_res.first == 3);
-  assert(reduce_res.second == -300);
+  ASSERT_TRUE(reduce_res.first == 3);
+  ASSERT_TRUE(reduce_res.second == -300);
 
   mpz_set_si(seq_z[0], 10);
   mpz_set_si(seq_z[1], 10);
@@ -133,8 +133,8 @@ void testUtility() {
 
   reduce_res = reduce(seq_z, 4);
 
-  assert(reduce_res.first == 0);
-  assert(reduce_res.second == 10);
+  ASSERT_TRUE(reduce_res.first == 0);
+  ASSERT_TRUE(reduce_res.second == 10);
 
   clearZSequence(seq_z, 4);
   free(seq_z);
@@ -153,14 +153,15 @@ void testUtility() {
   subtract(seq_z, 5,
            7, 20, 31, pt);
 
-  assert(mpz_cmp_si(seq_z[0], -2004077) == 0);
-  assert(mpz_cmp_si(seq_z[1], -1539298) == 0);
-  assert(mpz_cmp_si(seq_z[2], -1172400) == 0);
-  assert(mpz_cmp_si(seq_z[3], -881966) == 0);
-  assert(mpz_cmp_si(seq_z[4], -654363) == 0);
+  ASSERT_TRUE(mpz_cmp_si(seq_z[0], -2004077) == 0);
+  ASSERT_TRUE(mpz_cmp_si(seq_z[1], -1539298) == 0);
+  ASSERT_TRUE(mpz_cmp_si(seq_z[2], -1172400) == 0);
+  ASSERT_TRUE(mpz_cmp_si(seq_z[3], -881966) == 0);
+  ASSERT_TRUE(mpz_cmp_si(seq_z[4], -654363) == 0);
 
   clearZSequence(seq_z, 5);
   free(seq_z);
 
   fprintf(stderr, "=== END testUtility ===\n");
+  return EXIT_SUCCESS;
 }
