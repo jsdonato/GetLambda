@@ -22,8 +22,8 @@ int testPolynomial() {
 
   mpq_set_str(comp, "575000015/3", 0);
 
-  assert(mpq_cmp(num, comp) == 0);
-  assert(poly.getDegree() == 5);
+  ASSERT_TRUE(mpq_cmp(num, comp) == 0);
+  ASSERT_TRUE(poly.getDegree() == 5);
 
   // TEST 2
   poly.reInit(2);
@@ -38,8 +38,8 @@ int testPolynomial() {
 
   mpq_set_str(comp, "103247296653312936650981814799528172753487093975867/15025", 0);
 
-  assert(mpq_cmp(num, comp) == 0);
-  assert(poly.getDegree() == 99);
+  ASSERT_TRUE(mpq_cmp(num, comp) == 0);
+  ASSERT_TRUE(poly.getDegree() == 99);
 
   // TEST 3
   poly.reInit(3);
@@ -56,8 +56,8 @@ int testPolynomial() {
 
   mpq_set_str(comp, "150323855360001048576000000000000000320000/1", 0);
 
-  assert(mpq_cmp(num, comp) == 0);
-  assert(poly.getDegree() == 31);
+  ASSERT_TRUE(mpq_cmp(num, comp) == 0);
+  ASSERT_TRUE(poly.getDegree() == 31);
 
   mpq_clear(num);
   mpq_clear(comp);

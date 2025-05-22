@@ -1,7 +1,6 @@
 #ifndef TESTS_HPP
 #define TESTS_HPP
 
-#include <assert.h>
 #include "Pascal.hpp"
 #include "Polynomial.hpp"
 #include "Utility.hpp"
