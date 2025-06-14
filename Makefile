@@ -13,8 +13,8 @@ PREFIX=$(shell sed -n '2p' $(ROOT)/build_cache)
 	$(CC) $(CFLAGS) -I$(GMP_DIR)/include -c -o $@ $<
 
 libgetlambda.a: $(OBJS)
-	mkdir $(PREFIX)/lib
-	mkdir $(PREFIX)/include
+	mkdir -p $(PREFIX)/lib
+	mkdir -p $(PREFIX)/include
 	ar rcs libgetlambda.a $(OBJS)
 	mv libgetlambda.a $(PREFIX)/lib
 	cp $(ROOT)/src/*hpp $(PREFIX)/include

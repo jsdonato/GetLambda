@@ -8,13 +8,11 @@
 
 struct Polynomial {
 public:
-  Polynomial(const uint64_t& num_terms_);
+  Polynomial(const uint64_t& degree_);
 
-  void reInit(const uint64_t& num_terms_);
+  void reInit(const uint64_t& degree_);
 
-  void setCoefficient(const uint64_t& i, const char* str);
-
-  void setDegree(const uint64_t& i, const uint64_t& d);
+  void setCoefficient(const uint64_t& d, const char* str);
 
   inline uint64_t getDegree() const { return degree; }
 
@@ -24,9 +22,7 @@ public:
 
 private:
   uint64_t degree;
-  uint64_t num_terms;
   mpq_t* coefficients;
-  uint64_t*  degrees;
 };
 
 #endif

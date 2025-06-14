@@ -30,19 +30,17 @@ with number of elements `const uint64_t& len`.
 In the second method, the user provides a `Polynomial` object which represents a polynomial in $\mathbb{Q}[x]$.
 The `Polynomial` methods that the user should be concerned with are the following.
 ```
-Polynomial(const uint64_t& num_terms_);
-void reInit(const uint64_t& num_terms_);
-void setCoefficient(const uint64_t& i, const char* str);
-void setDegree(const uint64_t& i, const uint64_t& d);
+Polynomial(const uint64_t& degree_);
+void reInit(const uint64_t& degree__);
+void setCoefficient(const uint64_t& d, const char* str);
 uint64_t getDegree();
 ```
-To construct a `Polynomial` object the user must provide an integer `num_terms_` which is the number of
-terms in the polynomial.  The member function `reInit(const uint64_t& num_terms_)` clears the existing polynomial
-and reinitializes it with a new number of terms `num_terms_`.  To set the coefficients, one can employ the
-`setCoefficient(const uint64_t& i, const char* str)` member function which sets the coefficient of the `i`th term.
+To construct a `Polynomial` object the user must provide an integer `degree_` which is the degree of
+the polynomial.  The member function `reInit(const uint64_t& degree_)` clears the existing polynomial
+and reinitializes it with a new degree `degree_`.  To set the coefficients, one can employ the
+`setCoefficient(const uint64_t& d, const char* str)` member function which sets the coefficient of the `d` degree term.
 The second parameter `const char* str` sets the `mpq_t` object representing the coefficient by employing
 `mpq_set_str(mpq_t rop, const char *str, int base)` as defined in the GMP manual but with `base` set to zero.
-The member function `setDegree(const uint64_t& i, const uint64_t& d)` sets the degree of the `i`th term to `d`.
 The member function `getDegree()` simply returns the degree of the polynomial.
 
 For both methods `getLambdaFromSequence` and `getLambdaFromPolynomial` they return an empty vector if the polynomial

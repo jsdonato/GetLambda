@@ -6,34 +6,19 @@ int testGetLambda() {
   PascalsTriangle pt;
   std::vector<uint64_t> res;
   std::vector<uint64_t> comp;
-  Polynomial poly (3);
+  Polynomial poly (5);
 
   // TEST 1
-  poly.setDegree(0, 1);
-  poly.setDegree(1, 4);
-  poly.setDegree(2, 5);
-
-  poly.setCoefficient(0, "2");
-  poly.setCoefficient(1, "50/3");
-  poly.setCoefficient(2, "2/3");
+  poly.setCoefficient(1, "2");
+  poly.setCoefficient(4, "50/3");
+  poly.setCoefficient(5, "2/3");
 
   res = getLambdaFromPolynomial(poly, pt);
 
   ASSERT_TRUE(res.empty());
 
   // TEST 2
-  poly.reInit(10);
-
-  poly.setDegree(0, 0);
-  poly.setDegree(1, 1);
-  poly.setDegree(2, 2);
-  poly.setDegree(3, 3);
-  poly.setDegree(4, 4);
-  poly.setDegree(5, 5);
-  poly.setDegree(6, 6);
-  poly.setDegree(7, 7);
-  poly.setDegree(8, 8);
-  poly.setDegree(9, 9);
+  poly.reInit(9);
 
   poly.setCoefficient(0, "4717440/362880");
   poly.setCoefficient(1, "-3920976/362880");
@@ -53,7 +38,6 @@ int testGetLambda() {
   for (uint64_t i = 0; i < res.size(); ++i) {
     ASSERT_TRUE(res[i] == comp[i]);
   }
-
 
   // TEST 3
   mpz_t* seq_z = (mpz_t *)malloc(9 * sizeof(mpz_t));
