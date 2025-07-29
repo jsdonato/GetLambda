@@ -31,7 +31,7 @@ In the second method, the user provides a `Polynomial` object which represents a
 The `Polynomial` methods that the user should be concerned with are the following.
 ```
 Polynomial(const uint64_t& degree_);
-void reInit(const uint64_t& degree__);
+void reInit(const uint64_t& degree_);
 void setCoefficient(const uint64_t& d, const char* str);
 uint64_t getDegree();
 ```
